@@ -5,57 +5,61 @@
 @endsection
 
 @section('content')
-<h1 class="font-bold text-blue-800 text-lg"></h1>
-<div class="flex  items-center">
+<div class="flex flex-col items-center">
+    <h1 class="font-bold text-black text-2xl mt-5"> Sign in </h1>
     <form action="/doRegister" method="POST">
         @csrf
-    <div class="flex flex-col pt-5">
-        <div class="flex flex-col pt-2">
+    <div class="flex flex-col items-center mt-5 p-5 rounded bg-neutral-700">
+        
+        <div class="flex flex-col pt-2  text-white">
             <label for="nome">Nome</label>
-            <input class="p1 px-2 border-blue-200" type="text" name="name" id="name" placeholder="Nome"
+            <input class="m-2 px-1 bg-neutral-700 border border-transparent border-b-white" 
+            type="text" name="name" id="name" placeholder="Nome"
             value="{{old("name")}}"> {{--me lo mantiene quando da errore--}}
             @error('name')
                 <span class="font-bold text-red-500">{{$message}}</span>
             @enderror
         </div>
-        <div class="flex flex-col pt-2">
+        <div class="flex flex-col pt-2  text-white">
             <label for="slug">Cognome</label>
-            <input class="p1 px-2 border-blue-200" type="text" name="surname" id="surname" placeholder="Ingnazio il surname">
+            <input class="m-2 px-1 bg-neutral-700 border border-transparent border-b-white"
+            type="text" name="surname" id="surname" placeholder="Ingnazio il surname">
             @error('surname')
                 <span class="font-bold text-red-500">{{$message}}</span>
             @enderror
         </div>
-        <div class="flex flex-col pt-2">
+        <div class="flex flex-col pt-2  text-white">
             <label for="slug">E-mail</label>
-            <input class="p1 px-2 border-blue-200" type="text" name="email" id="email" placeholder="e-mail"
+            <input class="m-2 px-1 bg-neutral-700 border border-transparent border-b-white" 
+            type="text" name="email" id="email" placeholder="e-mail"
             value="{{old("email")}}">
             @error('email')
                 <span class="font-bold text-red-500">{{$message}}</span>
             @enderror
         </div>
-        <div class="flex flex-col pt-2">
+        <div class="flex flex-col pt-2  text-white">
             <label for="password">Password</label>
-            <input class="p1 px-2 border-blue-200" type="password" name="password" id="password" >
+            <input class="m-2 px-1 bg-neutral-700 border border-transparent border-b-white" 
+            type="password" name="password" id="password" >
             @error('password')
                 <span class="font-bold text-red-500">{{$message}}</span>
             @enderror
         </div>
-        <div class="flex flex-col pt-2">
+        <div class="flex flex-col pt-2  text-white">
             <label for="password_confirmation">Conferma Password</label>
-            <input class="p1 px-2 border-blue-200" type="password" name="password_confirmation" id="password_confirmation" placeholder="password">
+            <input class="m-2 px-1 bg-neutral-700 border border-transparent border-b-white" 
+            type="password" name="password_confirmation" id="password_confirmation" placeholder="password">
             @error('password_confirmation')
                 <span class="font-bold text-red-500">{{$message}}</span>
             @enderror
         </div>
-        <div class="flex mt-2  ">
-            <input class="bg-green-400 p-2 text-white rounded" type="submit" value="Sign in">
+        <div class="flex  mt-5">
+            <input class="bg-slate-200 rounded text-base font-bold text-black rounded p-2" 
+            type="submit" value="Sign in">
         </div>
-        <span><a href="/register">o Log in</a></span>
-        
-   
+    </div>
+    <span class="text-sm ">Already have an account?<a class="font-bold" href="/login"> Log in</a></span>
     </form>
-    </div>
-    </div>
 
 </div>
 @endsection

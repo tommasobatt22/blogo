@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function index(){
+        
+        $lastArticle = Article::latest('created_at')->first();
+
         $articlesByCategory = Article::with('category')
         ->get()
         ->groupBy('category.name')
@@ -19,6 +22,7 @@ class ArticleController extends Controller
             return $articles->take(3);//prendo gli ultimi 3 articoli per ogni categoria 
         });
         return view('welcome',[
+            "lastArticle" => $lastArticle,
             "articlesByCategory" => $articlesByCategory,
             "categories"=>Category::all()
         ]);

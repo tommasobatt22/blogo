@@ -10,17 +10,14 @@
     </div>
     
     <div class="flex-row justify-center mt-10">
-        {{-- @foreach ($articles as $article)
-        <form action="articles/delete/{{$article->id}}" method="POST">
-            @csrf
-            <div class="py-8  font-extrabold">
-                <h2 class="mr-auto"><a href="articles/detail/{{$article->slug}}/{{$article->id}}">{{$article->title}}</a> </h2>
-                <a class="bg-blue-400 font-normal text-white rounded" href="articles/edit/{{ $article->id }}">Modifica</a>
-
-                @method('DELETE')
-            <input type="submit" class="bg-blue-500 text-white font-normal rounded" value="elimina">
+        <div class="w-full p-5 flex flex-row">
+            <div class="w-3/5 flex flex-col h-80">
+                <span class="mb-5 w-full text-center font-bold text-2xl text-black">{{$lastArticle->title}}</span>
+                <p class="px-5 line-clamp-6  text-xs font-base overflow-hidden text-justify">{{$lastArticle->content}}</p>
             </div>
-        </form> --}}
+            <div class=" bg-cover bg-top w-64 h-96 " 
+            style="background-image: url('{{ asset($lastArticle->img) }}');"></div>
+        </div>
         <div class="w-full">
         @foreach ($articlesByCategory as $categoryName => $articles)
             <div class="w-full flex justify-center p-2">
