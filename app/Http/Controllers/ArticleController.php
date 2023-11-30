@@ -89,8 +89,7 @@ class ArticleController extends Controller
 
         $article = Article::where('id',$id)->first();
         $comments = Comment::where('article_id',$id)->first();
-        $last3Articles = Article::where('category_id',$article->category_id)
-        ->orderBy('created_at', 'DESC')
+        $last3Articles = Article::orderBy('created_at', 'DESC')
         ->take(3)
         ->get();
         

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<span class="p-5 pt-10 inline-block w-full text-center font-bold text-2xl text-black">{{$article->title}}</span>
+<span class="p-5 pt-10 inline-block w-full text-center font-bold text-2xl text-black uppercase">{{$article->title}}</span>
 <div class="flex flex-col items-center m-10 ">
     <div class="flex flex-row w-full justify-between"> 
         <div class="h-48 w-32 shadow-lg">
@@ -32,10 +32,12 @@
                 <span class="text-l uppercase text-white font-bold ">latest articles</span> 
             </div>
             <div class="w-full p-2">
-                @foreach ($lastArticles as $article)
+                @foreach ($lastArticles as $lastArticle)
                     <div class="py-1">
-                        <div class="bg-cover bg-center h-16" style="background-image: url('{{ asset($article->img) }}');"></div>
-                        <p class="text-bold text-xs font-bold">{{$article->title}}</p>
+                        <div class="bg-cover bg-center h-16" style="background-image: url('{{ asset($lastArticle->img) }}');"></div>
+                        <a href="/articles/detail/{{$lastArticle->slug}}/{{ $lastArticle->id }}">
+                            <p class="text-bold text-xs font-bold">{{$lastArticle->title}}</p>
+                        </a>
                     </div>
                 @endforeach
             </div>
