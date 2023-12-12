@@ -14,7 +14,7 @@
             transition duration-700 hover:text-white hover:bg-black ">
                 <a href="/articles/detail/{{$lastArticle->slug}}/{{ $lastArticle->id}}">
                     <span class="text-m font-bold uppercase">
-                    Leggi l'articolo</span>
+                    Read More</span>
                 </a>
             </div> 
         </div>
